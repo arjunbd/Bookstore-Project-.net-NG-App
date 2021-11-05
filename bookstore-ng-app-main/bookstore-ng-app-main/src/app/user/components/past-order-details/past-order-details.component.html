@@ -1,0 +1,14 @@
+<table class="table table-striped table-bordered">
+    <thead class="thead">
+        <tr>
+            <th scope="col">Book Title</th>
+            <th scope="col">Order Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of pastOrderDetails">
+            <td>{{book.bookTitle}}</td>
+            <td>{{book.orderQty}}</td>
+        </tr>
+    </tbody>
+</table>

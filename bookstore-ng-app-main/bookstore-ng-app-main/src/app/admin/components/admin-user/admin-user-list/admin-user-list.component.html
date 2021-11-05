@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="col">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 mb-3" *ngFor="let user of userList">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"><a routerLink="{{user.userName}}"
+                                title="View Product">{{user.userName}}</a></h4>
+                        <p class="card-text">Address : {{user.shippingAddress}}</p>
+                        <p class="card-text">Status: {{user.userStatus}}</p>
+                        <button class="btn btn-outline-dark" (click)="handleActivate(user.userName)"
+                            *ngIf="!user.userStatus">Activate</button>
+                        <button class="btn btn-outline-dark" (click)="handleDeactivate(user.userName)"
+                            *ngIf="user.userStatus">Deactivate</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

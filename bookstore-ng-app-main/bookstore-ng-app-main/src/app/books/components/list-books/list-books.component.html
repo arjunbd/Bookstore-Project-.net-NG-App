@@ -1,0 +1,51 @@
+<section class="header-main border-bottom mt-5">
+    <form [formGroup]="SearchByForm" (ngSubmit)="HandleSearch()">
+    <div class="input-group mb-3">
+        <div class="input-group-text p-0">
+            <!-- <select formControlName="searchquery" class="form-select form-select-lg shadow-none bg-light border-0" >
+                <option>SEARCH BY</option>
+                <option value="Category">Category</option>
+                <option value="ISBN">ISBN</option>
+                <option value="Author">Author</option>
+                <option value="Name">Name</option>
+            </select> -->
+            <select formControlName="searchquery" class="form-select" aria-label="Default select example">
+                <option selected>SEARCH </option>
+                <option value="Category">Category</option>
+                <option value="ISBN">ISBN</option>
+                <option value="Author">Author</option>
+                <option value="Name">Name</option>
+              </select>
+        </div>
+        <input formControlName="searchby" type="text" class="form-control" placeholder="Search Here">
+        <button class="input-group-text shadow-none px-4 btn-warning">
+            <i class="bi bi-search"></i>
+        </button>
+    </div>
+    </form>
+</section> 
+<section class="section-content">
+    <div class="container">
+
+        <header class="section-heading">
+            <h3 class="section-title">All Books</h3>
+        </header>
+        <div class="row">
+            <div class="card col-sm-2 mb-3" style="width: 25rem;" *ngFor="let books of bookList">
+                <img src="{{books.bookImage}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"  >{{books.bookTitle}}</h5>
+                    <p class="card-text">{{books.bookDescription}}</p>
+                    <a routerLink="/books/{{books.bookId}}" class="card-link btn btn-secondary">View Details</a>
+                    <div class="buttons d-flex flex-row mt-5 gap-3">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</section>
+
+
+
+

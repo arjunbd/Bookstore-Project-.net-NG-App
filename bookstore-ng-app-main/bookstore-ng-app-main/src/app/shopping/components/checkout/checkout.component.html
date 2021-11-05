@@ -1,0 +1,34 @@
+<div class="container" style="margin-top: 50px;">
+
+    <div class="row">
+       
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Billing</h4>
+            <div >
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Your cart</span>
+                    <span class="badge badge-secondary badge-pill">3</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li *ngFor="let cartItem of cartItemList"class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">{{cartItem.bookTitle}}</h6>
+                           
+                        </div>
+                        <span class="text-muted">{{cartItem.bookPrice}}</span>
+                    </li>
+                   
+                    
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total (USD)</span>
+                        <strong>{{totalcost}}</strong>
+                    </li>
+                </ul>
+    
+            </div>
+            <button (click)="acceptOrder()" class="btn btn-primary btn-lg btn-block me-5 mb-5" >Continue </button>
+            <!-- <button (click)="cancelOrder()" class="btn btn-danger btn-lg btn-block mb-5" type="submit">Cancel</button> -->
+        </div>
+    </div>
+
+</div>

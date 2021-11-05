@@ -1,0 +1,151 @@
+<div class="container mt-5 mb-5">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-6 border-end">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="main_image"> <img src="{{bookObj.bookImage}}" id="main_product_image" width="350">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 right-side">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3>{{bookObj.bookTitle}}</h3>
+                    </div>
+
+                    <div class="mt-2 pr-3 content">
+                        <p>{{bookObj.bookDescription}}</p>
+                    </div>
+
+                    <p>Status: {{bookObj.bookStatus}}</p>
+                    <p>Position: {{bookObj.bookPosition}}</p>
+                    <p>Author: {{bookObj.bookAuthor}}</p>
+                    <p>ISBN: {{bookObj.bookISBN}}</p>
+                    <p>Year: {{bookObj.bookYear}}</p>
+                    <p>Price: {{bookObj.bookPrice}}</p>
+                    <p>Category: {{bookObj.categoryId}}</p>
+
+
+                    <div class="buttons d-flex flex-row mt-5 gap-3">
+                        <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editBookModal"
+                            (click)="handleEditModalOpen()">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Update Category Modal -->
+    <div class="modal fade" id="editBookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" *ngIf="dupBookData">
+                    <form ngNativeValidate (ngSubmit)="handleUpdateBook()">
+                        <div class="form-group row mb-3">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">ID</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Enter name"
+                                    [(ngModel)]="dupBookData.bookId" name="bookId" required disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Category ID</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Enter category ID"
+                                    [(ngModel)]="dupBookData.categoryId" name="categoryId" required>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Enter book title"
+                                    [(ngModel)]="dupBookData.bookTitle" name="bookTitle" required>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Enter Description"
+                                    [(ngModel)]="dupBookData.bookDescription" name="bookDescription">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Price</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" placeholder="Price"
+                                    [(ngModel)]="dupBookData.bookPrice" name="bookPrice">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Position</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" placeholder="Enter Position"
+                                    [(ngModel)]="dupBookData.bookPosition" name="bookPosition">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Status</label>
+                            <div class="col-sm-10">
+                                <input type="checkbox" class="form-check-input" placeholder="Status"
+                                    [(ngModel)]="dupBookData.bookStatus" name="bookStatus">
+                            </div>
+                        </div>
+                        <div class="alert alert-success" *ngIf="isUpdated">
+                            Updated successfully!
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Category Modal
+    <div class="modal fade" id="deleteCatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete category {{bookObj.categoryName}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" *ngIf="dupBookData">
+                    <form ngNativeValidate (ngSubmit)="handleDeleteCat()">
+                        <div class="form-group row mb-3">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Category Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"
+                                    [(ngModel)]="dupBookData.categoryName" name="categoryName" required disabled>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 class="text-center">These books will be deleted</h3>
+                        <br>
+                        <div class="form-group row mb-3 text-center" *ngFor="let book of dupBookData">
+                            <div class="col-sm-10">
+                                <p>{{book.bookTitle}}</p>
+                            </div>
+                        </div>
+                        <div class="alert alert-success" *ngIf="isDeleted">
+                            Deleted successfully!
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Yes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+</div>

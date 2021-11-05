@@ -1,0 +1,16 @@
+<div class="hero-full-screen">
+
+    <div class="top-content-section">
+    </div>
+
+    <div class="middle-content-section">
+        <h1 class="display-1">Book Store</h1>
+        <h2 class="display-2 mt-5 mb-5" *ngIf="(isLoggedIn|async)">Welcome {{isUser|async}}</h2>
+        <a routerLink="/login" *ngIf="!(isLoggedIn|async)"><button class="btn btn-primary btn-lg" style="margin: 10px; width: 100px;">Login</button></a>
+        <a routerLink="/books"><button class="btn btn-secondary btn-lg " style="margin: 10px; width: 100px;">Shop</button></a>
+    </div>
+
+    <div class="bottom-content-section" data-magellan data-threshold="0">
+    </div>
+
+</div>

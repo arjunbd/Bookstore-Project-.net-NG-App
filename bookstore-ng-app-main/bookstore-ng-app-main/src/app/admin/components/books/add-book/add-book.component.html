@@ -1,0 +1,128 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center mb-3">
+            <h1>Add Book</h1>
+        </div>
+
+        <form class="col-md-6 offset-md-3" [formGroup]="addBookForm" (ngSubmit)="handleAddBook()">
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-2 col-form-label">Book Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"
+                        [ngClass]="{ 'is-invalid': addBookForm.get('bookTitle')?.touched && addBookForm.get('bookTitle')?.invalid }"
+                        placeholder="Enter Book Title" formControlName="bookTitle" />
+                    <div class="invalid-feedback">
+                        <div>Book Title is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-2 col-form-label">Book Category ID</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Enter Book Category ID"
+                        formControlName="categoryId"
+                        [ngClass]="{ 'is-invalid': addBookForm.get('categoryId')?.touched && addBookForm.get('categoryId')?.invalid }" />
+                    <div class="invalid-feedback">
+                        <div>Book Category ID is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-2 col-form-label">Book ISBN</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Enter Book ISBN"
+                        formControlName="bookISBN"
+                        [ngClass]="{ 'is-invalid': addBookForm.get('bookISBN')?.touched && addBookForm.get('bookISBN')?.invalid }" />
+                    <div class="invalid-feedback">
+                        <div>Book ISBN is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-2 col-form-label">Author</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Enter Author"
+                        formControlName="author"
+                        [ngClass]="{ 'is-invalid': addBookForm.get('author')?.touched && addBookForm.get('author')?.invalid }" />
+                    <div class="invalid-feedback">
+                        <div>Author is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-2 col-form-label">Book Year</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Enter Book Year"
+                        formControlName="bookYear"
+                        [ngClass]="{ 'is-invalid': addBookForm.get('bookYear')?.touched && addBookForm.get('bookYear')?.invalid }" />
+                    <div class="invalid-feedback">
+                        <div>Book Year is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-2 col-form-label">Book Price</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Enter Book Price"
+                        formControlName="bookPrice"
+                        [ngClass]="{ 'is-invalid': addBookForm.get('bookPrice')?.touched && addBookForm.get('bookPrice')?.invalid }" />
+                    <div class="invalid-feedback">
+                        <div>Book Price is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-2 col-form-label">Book Description</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Enter Book Description"
+                        formControlName="bookDescription"
+                        [ngClass]="{ 'is-invalid': addBookForm.get('bookDescription')?.touched && addBookForm.get('bookDescription')?.invalid }" />
+                    <div class="invalid-feedback">
+                        <div>Book Description is required</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-2 col-form-label">Book Status</label>
+                <div class="col-sm-10">
+                    <select formControlName="bookStatus"
+                        class="form-select form-select-lg shadow-none bg-light border-0">
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-2 col-form-label">Book Position</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Enter Book Position "
+                        formControlName="bookPosition"
+                        [ngClass]="{ 'is-invalid': addBookForm.get('bookPosition')?.touched && addBookForm.get('bookPosition')?.invalid }" />
+                    <div class="invalid-feedback">
+                        <div>Book Position is required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success" *ngIf="isSaved">
+                Saved Successfully
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary" >Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

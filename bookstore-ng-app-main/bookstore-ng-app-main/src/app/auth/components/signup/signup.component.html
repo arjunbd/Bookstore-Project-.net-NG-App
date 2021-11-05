@@ -1,0 +1,55 @@
+<section class="vh-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 text-black">
+
+                <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+                    <form style="width: 23rem;" #regForm="ngForm" (ngSubmit)="handleRegister(regForm)" >
+
+                        <h1 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign Up</h1>
+
+                        <div class="form-outline mb-4">
+                            <input type="text" ngModel name="userName" id="signupUsername" class="form-control form-control-lg" />
+                            <label class="form-label" for="signupUsername">User Name</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" ngModel name="userPassword" id="signupPassword" class="form-control form-control-lg" />
+                            <label class="form-label" for="signupPassword">Password</label>
+                        </div>
+                        <p>More About you :</p>
+                        <div class="form-outline mb-4">
+                            <input type="text" ngModel name="shippingAddress" id="userAddress" class="form-control form-control-lg" />
+                            <label class="form-label" for="userRegister">Enter Address</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="signupTerms">
+                            <label class="form-check-label" for="signupTerms">
+                                I agree to read all the books that I buy and not just stock them up in the hopes that
+                                I'll start reading them some day
+                            </label>
+                        </div>
+
+                        <br>
+
+                        <div class="pt-1 mb-4">
+                            <button class="btn btn-info btn-lg btn-block" type="submit">Sign Up</button>
+                        </div>
+                        <div class="pt-1 mb-4">
+                            <p>Already have an account? <a routerLink="/login" class="link-info">Go to Login</a></p>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+            <div class="col-sm-6 px-0 d-none d-sm-block">
+                <img src="../../../../assets/images/signupPage.jpg"
+                    alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+            </div>
+        </div>
+    </div>
+</section>
+
